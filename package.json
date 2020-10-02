@@ -1,0 +1,24 @@
+{
+  "name": "01-node-basics",
+  "version": "1.0.0",
+  "description": "homework",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": " \"echo \\\"Error: no test specified\\\" && exit 1\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OlegKhodakivskyi/01-node-basics.git"
+  },
+  "author": "Oleg Khodakivskyi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OlegKhodakivskyi/01-node-basics/issues"
+  },
+  "homepage": "https://github.com/OlegKhodakivskyi/01-node-basics#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
