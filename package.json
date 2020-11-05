@@ -20,5 +20,9 @@
   "homepage": "https://github.com/OlegKhodakivskyi/01-node-basics#readme",
   "devDependencies": {
     "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "uuidv4": "^6.2.5",
+    "yargs": "^16.1.0"
   }
 }
