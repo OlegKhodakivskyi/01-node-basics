@@ -19,9 +19,15 @@
   },
   "homepage": "https://github.com/OlegKhodakivskyi/01-node-basics#readme",
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "prettier": "^2.1.2"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "joi": "^17.3.0",
+    "morgan": "^1.10.0",
     "uuidv4": "^6.2.5",
     "yargs": "^16.1.0"
   }
