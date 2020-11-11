@@ -31,7 +31,7 @@ class CrudServer {
   }
 
   initRouters() {
-    this.app.use("/contacts", contactsRouter);
+    this.app.use("/", router )
   }
 
 async initDataBase() {
