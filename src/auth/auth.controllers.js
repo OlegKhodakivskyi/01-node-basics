@@ -1,8 +1,11 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const { v4: uuidv4 } = require("uuid");
+const { token } = require("morgan");
 const UserModel = require("../auth/user.model");
 const AppError = require("../helpers/errApp");
 const { generateAvatar } = require("../helpers/avatarCreator");
+const { emailVerificationSender } = require("../services/emailService");
 require("dotenv").config();
 
 exports.createNewUser = async (req, res, next) => {
@@ -19,12 +22,17 @@ exports.createNewUser = async (req, res, next) => {
 
   const avatarName = await generateAvatar();
   const avatarPath = `http://localhost:${process.env.PORT}/images/${avatarName}`;
+  const verificationToken = uuidv4();
 
   const newUser = await UserModel.create({
     email,
     password: passwordHash,
     avatarURL: avatarPath,
+    verificationToken,
   });
+
+  await emailVerificationSender(email, verificationToken);
+
   res.status(201).json({
     status: "success",
     createdUser: {
@@ -42,7 +50,9 @@ exports.loginUser = async (req, res, next) => {
   if (!existUser) {
     return next(new AppError("Email or password is wrong", 401));
   }
+
   const validPassword = await bcrypt.compare(password, existUser.password);
+  
   if (!validPassword) {
     return next(new AppError("Email or password is wrong", 401));
   }

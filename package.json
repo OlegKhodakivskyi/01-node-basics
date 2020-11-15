@@ -23,6 +23,7 @@
     "prettier": "^2.1.2"
   },
   "dependencies": {
+    "@sendgrid/mail": "^7.4.0",
     "avatar-generator": "^2.0.4",
     "bcrypt": "^5.0.0",
     "cookie-parser": "^1.4.5",
